@@ -25,9 +25,10 @@ class CurrencyController extends Controller
         }
 
         // Store exchange rate data in the database
+        // $exchangeRate = CurrencyExchangeRate::create([$request->all()]);
         $exchangeRate = new CurrencyExchangeRate();
-        $exchangeRate->currency_type = $request->type;
-        $exchangeRate->exchange_rate = $request->rate;
+        $exchangeRate->type = $request->type;
+        $exchangeRate->rate = $request->rate;
         $exchangeRate->amount = $request->amount;
         $exchangeRate->save();
 
