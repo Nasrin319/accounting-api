@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('amount');
             $table->enum('type', CurrencyExchangeRate::TYPE);
-            $table->decimal('rate', 10, 2);
+            $table->decimal('rate', 10, 0);
             $table->softDeletes();
             $table->timestamps();
         });
