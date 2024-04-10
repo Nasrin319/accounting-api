@@ -43,4 +43,24 @@ class CurrencyController extends Controller
         // Return a resource with the stored exchange rate data
         return new CurrencyExchangeRateResource($exchangeRate);
     }
+
+    public function fetchOurAssets()
+    {
+
+        $transactions = CurrencyExchangeRate::all();
+
+        $totalValue = 0;
+        $totalAmount = 0;
+
+        foreach ($transactions as $transaction) {
+            $totalValue += $transaction->amount * $transaction->rate;
+            $totalAmount += $transaction->amount;
+        }
+        if ($totalAmount > 0) {
+            $weightedAverageRate = $totalValue / $totalAmount;
+            return $this->successResponse(['our-amount' => $totalAmount, 'weightedAverageRate' => $weightedAverageRate]);
+        } else {
+            return $this->errorResponse("No transactions found to calculate the weighted average rate.", 400);
+        }
+    }
 }

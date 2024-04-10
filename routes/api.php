@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/exchange-currency', ['as' => 'index', 'uses' => 'App\Http\Controllers\CurrencyController@index']);
 Route::post('/exchange-currency', ['as' => 'store', 'uses' => 'App\Http\Controllers\CurrencyController@store']);
+Route::get('/asset', ['as' => 'index', 'uses' => 'App\Http\Controllers\CurrencyController@fetchOurAssets']);
