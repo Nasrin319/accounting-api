@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "fa03985a-bf56-49dd-a32b-6c1dcb4c53b4",
+		"name": "accounting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15770875",
+		"_collection_link": "https://lively-sunset-332364.postman.co/workspace/acounting~51d8aaf5-086a-4371-bace-2bd597c56b5e/collection/15770875-fa03985a-bf56-49dd-a32b-6c1dcb4c53b4?action=share&source=collection_link&creator=15770875"
+	},
+	"item": [
+		{
+			"name": "fetch currency Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/exchange-currency?type=usd",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"exchange-currency"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "usd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create currency",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "out assets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/assets",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"assets"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
