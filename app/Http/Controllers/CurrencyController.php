@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Validator;
 class CurrencyController extends Controller
 {
     use ApiResponse;
+
+    public function index(Request $request)
+    {
+        $exchangeRates = CurrencyExchangeRate::filter()->paginate(10);
+
+        $exchangeRates->onEachSide(200);
+        return (CurrencyExchangeRateResource::collection($exchangeRates));
+    }
     public function store(Request $request)
     {
         // Validate incoming request data
@@ -34,6 +42,5 @@ class CurrencyController extends Controller
 
         // Return a resource with the stored exchange rate data
         return new CurrencyExchangeRateResource($exchangeRate);
-
     }
 }
